@@ -1,0 +1,164 @@
+{
+  "schema": "hotkey-catalog/1",
+  "version": "1.0.0",
+  "updated": "2026-10-28",
+  "note": "候选组合与疑似占用者知识库。claimant 只代表「该软件出厂常带这组键」，不代表此刻一定在占用；真实占用以探测结果为准，归属以「退出软件后复测」为准。",
+  "reserved": [
+    {"combo": "Win+L", "tier": "T5", "why": "锁屏，内核级保留，注册必然失败且不可改"},
+    {"combo": "Ctrl+Alt+Del", "tier": "T5", "why": "安全注意序列，任何用户态程序都无法注册"},
+    {"combo": "Alt+Tab", "tier": "T5", "why": "任务切换，由系统外壳直接处理，不进热键表"},
+    {"combo": "Alt+F4", "tier": "T5", "why": "关闭窗口，由系统外壳直接处理"},
+    {"combo": "Ctrl+Shift+Esc", "tier": "T5", "why": "任务管理器，外壳级保留"},
+    {"combo": "Win+Tab", "tier": "T5", "why": "任务视图，系统外壳保留"},
+    {"combo": "Win+D", "tier": "T5", "why": "显示桌面，资源管理器常驻注册"},
+    {"combo": "Win+E", "tier": "T5", "why": "打开资源管理器，资源管理器常驻注册"},
+    {"combo": "Win+R", "tier": "T5", "why": "运行对话框，系统外壳保留"},
+    {"combo": "Win+Shift+S", "tier": "T1", "why": "系统截图工具，系统常驻占用，建议保留不抢"}
+  ],
+  "unprobable": [
+    {"combo": "Ctrl+Shift", "tier": "T2", "why": "只按修饰键不按字母键，不属于全局热键，热键表里查不到；只能在输入法设置里核查"},
+    {"combo": "Shift", "tier": "T2", "why": "单个修饰键，输入法用它做临时中英切换，无法注册也无法探测"}
+  ],
+  "combos": [
+    {
+      "combo": "Alt+A",
+      "tier": "T1",
+      "tier_name": "截图录屏",
+      "symptom": "按了没反应，或弹出来的不是微信截图",
+      "claimants": [
+        {"app": "微信", "confidence": "high", "fix": "微信 左下角三横 设置 快捷键 截图 清除或改键"},
+        {"app": "企业微信", "confidence": "medium", "fix": "企业微信 设置 快捷键 截图 清除"}
+      ]
+    },
+    {
+      "combo": "Ctrl+Alt+A",
+      "tier": "T1",
+      "tier_name": "截图录屏",
+      "symptom": "按下后弹出的是 QQ 截图，但想用别的工具",
+      "claimants": [
+        {"app": "QQ", "confidence": "high", "fix": "QQ 设置 快捷键 捕捉屏幕 清除"},
+        {"app": "企业微信", "confidence": "medium", "fix": "企业微信 设置 快捷键 截图 清除"}
+      ]
+    },
+    {
+      "combo": "F1",
+      "tier": "T1",
+      "tier_name": "截图录屏",
+      "symptom": "按 F1 没反应，或弹出的不是截图工具",
+      "claimants": [
+        {"app": "Snipaste", "confidence": "high", "fix": "Snipaste 托盘右键 首选项 快捷键 截图 改键"},
+        {"app": "各软件的帮助窗口", "confidence": "medium", "fix": "该软件 设置 快捷键 或帮助菜单，把 F1 帮助改掉"}
+      ]
+    },
+    {
+      "combo": "F3",
+      "tier": "T1",
+      "tier_name": "截图录屏",
+      "symptom": "贴图键失效或被别的程序接走",
+      "claimants": [
+        {"app": "Snipaste", "confidence": "high", "fix": "Snipaste 托盘右键 首选项 快捷键 贴图 改键"}
+      ]
+    },
+    {
+      "combo": "PrintScreen",
+      "tier": "T1",
+      "tier_name": "截图录屏",
+      "symptom": "按 PrintScreen 弹的是微信或 QQ 截图，不是系统截图",
+      "claimants": [
+        {"app": "微信", "confidence": "medium", "fix": "微信 设置 快捷键 截图 取消 PrintScreen 绑定"},
+        {"app": "QQ", "confidence": "medium", "fix": "QQ 设置 快捷键 捕捉屏幕 取消 PrintScreen 绑定"}
+      ]
+    },
+    {
+      "combo": "Ctrl+Alt+W",
+      "tier": "T3",
+      "tier_name": "聊天办公互抢",
+      "symptom": "按 Ctrl+Alt+W 弹出的不是微信主面板",
+      "claimants": [
+        {"app": "微信", "confidence": "high", "fix": "微信 设置 快捷键 打开/隐藏微信 清除"},
+        {"app": "钉钉", "confidence": "medium", "fix": "钉钉 设置 快捷键 打开/隐藏主面板 清除"}
+      ]
+    },
+    {
+      "combo": "Ctrl+Alt+Z",
+      "tier": "T3",
+      "tier_name": "聊天办公互抢",
+      "symptom": "提取消息键被别的聊天软件接走",
+      "claimants": [
+        {"app": "微信", "confidence": "medium", "fix": "微信 设置 快捷键 提取消息 清除"}
+      ]
+    },
+    {
+      "combo": "Ctrl+Space",
+      "tier": "T2",
+      "tier_name": "输入法热键",
+      "symptom": "想用 IDE 补全或游戏技能，结果切了中英文",
+      "claimants": [
+        {"app": "微软拼音", "confidence": "high", "fix": "设置 时间和语言 语言和区域 微软拼音 选项 按键 取消 Ctrl+Space 中英切换"},
+        {"app": "搜狗输入法", "confidence": "medium", "fix": "搜狗输入法 属性设置 按键 中英文切换 改成 Shift"}
+      ]
+    },
+    {
+      "combo": "Ctrl+Period",
+      "tier": "T2",
+      "tier_name": "输入法热键",
+      "symptom": "按 Ctrl+. 切了中英标点",
+      "claimants": [
+        {"app": "微软拼音", "confidence": "medium", "fix": "设置 时间和语言 语言和区域 微软拼音 选项 按键 中英标点 关闭"}
+      ]
+    },
+    {
+      "combo": "Alt+Space",
+      "tier": "T5",
+      "tier_name": "系统级",
+      "symptom": "想用第三方启动器，结果弹出窗口菜单",
+      "claimants": [
+        {"app": "Windows 窗口菜单", "confidence": "high", "fix": "系统行为，不建议改；改用更冷门的启动器热键"}
+      ]
+    },
+    {
+      "combo": "Ctrl+Shift+A",
+      "tier": "T3",
+      "tier_name": "聊天办公互抢",
+      "symptom": "被某个笔记或截图增强工具接走",
+      "claimants": [
+        {"app": "QQ", "confidence": "low", "fix": "QQ 设置 快捷键 逐项核对"}
+      ]
+    },
+    {
+      "combo": "Alt+Shift+S",
+      "tier": "T1",
+      "tier_name": "截图录屏",
+      "symptom": "录屏或区域截图被抢",
+      "claimants": [
+        {"app": "OBS / 录屏工具", "confidence": "low", "fix": "OBS 设置 热键 找到该组合 清除"}
+      ]
+    },
+    {
+      "combo": "Ctrl+Alt+H",
+      "tier": "T3",
+      "tier_name": "聊天办公互抢",
+      "symptom": "被语音或录屏工具接走",
+      "claimants": [
+        {"app": "QQ", "confidence": "low", "fix": "QQ 设置 快捷键 逐项核对"}
+      ]
+    },
+    {
+      "combo": "Ctrl+Shift+F",
+      "tier": "T3",
+      "tier_name": "聊天办公互抢",
+      "symptom": "IDE 全局搜索被聊天软件接走",
+      "claimants": [
+        {"app": "各类截图增强工具", "confidence": "low", "fix": "对应工具 设置 快捷键 清除"}
+      ]
+    }
+  ],
+  "drivers": [
+    {"name": "罗技 G HUB", "processes": ["lghub.exe", "lghub_agent.exe"], "switch": "G HUB 宏 设置 底部 全局宏禁用"},
+    {"name": "罗技 Options+", "processes": ["logioptionsplus_agent.exe", "logioptionsplus.exe"], "switch": "Options+ 设备 按键 逐键改回 默认"},
+    {"name": "雷蛇 雷云", "processes": ["razer synapse service.exe", "razer central.exe", "synapse3.exe"], "switch": "雷云 宏 模块 停用全部宏"},
+    {"name": "海盗船 iCUE", "processes": ["icue.exe", "icue background service.exe"], "switch": "iCUE 宏 面板 停用配置文件"},
+    {"name": "罗技 SetPoint", "processes": ["setpoint.exe"], "switch": "SetPoint 鼠标 按键 改回 默认"}
+  ],
+  "safe_pool": ["Ctrl+Alt+F9", "Ctrl+Shift+F9", "Alt+Shift+F10", "Ctrl+Alt+F11", "Win+Alt+F12"]
+}

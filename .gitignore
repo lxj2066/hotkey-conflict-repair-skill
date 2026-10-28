@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+probe.json
+plan.json
+snapshot.json
+report.html
+.DS_Store
